@@ -1943,7 +1943,7 @@
 ]
 @PointClass base(CBeam,Toggle) size(-4 -4 -4, 4 4 4) line(255 255 255, targetname, LaserTarget) color(255 203 11) = env_laser : "It creates a laser beam between itself and a given target. The main difference between this entity and env_beam is that a laser will not travel through anything solid. If the laser doesn't cause damage, make sure the origin is not inside anything solid. If your env_laser doesn't have a targetname it will automatically be turned on when the map starts."
 [
-	BoltWidth(float) : "Width of beam" : 2 : "Radius of the beam (i.e. 1 = 2 world units total thickness)."
+	width(float) : "Width of beam" : 2 : "Radius of the beam (i.e. 1 = 2 world units total thickness)."
 	NoiseAmplitude(float) : "Amount of noise" : 0 : "The amount of noise in the beam. 0 is a perfectly straight beam, and high values are very jagged."
 	TextureScroll(integer) : "Texture Scroll Rate" : 35 : "Rate at which the beam texture should scroll along the laser."
 	texture(sprite) : "Sprite Name" : "sprites/laserbeam.spr" : "The material used to draw the laser. IMPORTANT: Remember to add the texture's file extension to the end, to prevent crashes and other bugs."
@@ -2781,6 +2781,7 @@
 		256 : "Use max speed for pitch shifting move sound (See Max pitch)." : 0
 		512 : "Don't hurt blockers" : 0
 	]
+	target(target_destination) : "First Stop Target" :  : "Name of the first path_track in the path this entity should take."
 	wheels(float) : "Distance Between the Wheels" : 24 : "Used for turning and stopping. Increase the value for smoother turns."
 	height(float) : "Height above track" : 0 : "How high above the path_tracks the train will stay."
 	startspeed(float) : "Max Speed (units / second)" : 100 : "The maximum speed that this train can move. Any speeds applied to this train, such as by path_tracks or SetSpeed inputs, will be clamped to this maximum value."
