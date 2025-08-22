@@ -1055,7 +1055,7 @@
 		32 : "EndSparks (temporarily emits a sparks at ending point.)" : 0
 		64 : "Decal End (scorch mark where a damaging beam hits something. For env_beam see Decal Name.)" : 0
 	]
-	HDRColorScale(float) : "HDR color scale" : "1.0" : "Value to multiply sprite color by when running in HDR mode."
+	HDRColorScale(float) : "HDR Color Scale" : "1.0" : "Value to multiply sprite color by when running in HDR mode."
 	damage(integer) : "Damage/second" : 0 : "How much damage this beam does per second to things it hits when it is continually on, or instantaneously if it strikes. For continuous damage, the value should be greater than 10 or it may not work."
 	dissolvetype(choices) : "Sparks on Damage" : 0 : "If this beam damages something, shows sparks on that entity." =
 	[
@@ -1928,7 +1928,7 @@
 		1 : "Yes"
 	]
 	foglerptime(float) : "Interpolate time" : 5 : "Fade time for the StartFogTransition input."
-	fogRadial(choices) : "Use Radial Fog" : 1 : "Use a spherical looking fog instead of simple planar one."
+	fogRadial(choices) : "Use Radial Fog" : 1 : "Use a spherical looking fog instead of simple planar one." =
 	[
 		0 : "No"
 		1 : "Yes"
@@ -2417,6 +2417,7 @@
 	overlaysize(integer) : "Overlay Size" : 16 : "How big the overlay material is. If -1, uses a default value."
 	rendercolor(color255) : "Sun Color (R G B)" : "100 80 80" : "Color of the sun. The effect is additive with the sky: a pure yellow sun with a bright blue sky will appear white in-game; change the color to account for this."
 	overlaycolor(color255) : "Overlay Color (R G B)" : "255 255 255" : "Color of the sun overlay."
+    HDRColorScale(float) : "HDR Color Scale" : "1.0" : "Value to multiply sprite color by when running in HDR mode."
 	use_angles(choices) : "Positioning Method" : 0 : "Which settings should be used to determine where the sun is in the sky." =
 	[
 		0 : "Viewer Entity"
@@ -3586,7 +3587,7 @@
 		"teamplay_round_start" : "teamplay_round_start"
 		"christmas_gift_grab" : "christmas_gift_grab"
 	]
-	IsEnabled(choices) : "Start Enabled" : 1 : "Entity starts active."
+	IsEnabled(choices) : "Start Enabled" : 1 : "Entity starts active." =
 	[
 		0 : "No"
 		1 : "Yes"
@@ -3597,7 +3598,7 @@
 		2 : "Terrorists"
 		3 : "Counter-Terrorists"
 	]
-	FetchEventData(choices) : "Fetch Event Data" : 1 : "Copies the game event data to the event_data table in the script scope of this entity when the event is fired."
+	FetchEventData(choices) : "Fetch Event Data" : 1 : "Copies the game event data to the event_data table in the script scope of this entity when the event is fired." =
 	[
 		0 : "No"
 		1 : "Yes"
@@ -4107,7 +4108,7 @@
 	fogStart(float) : "Fog Start" : 500 : "Distance from the camera at which fog will start to fade in."
 	fogEnd(float) : "Fog End" : 2000 : "Distance from the camera at which the fog is at full density."
 	fogMaxDensity(float) : "Fog Max Density [0..1]" : 1 : "How dense fog can be. 1.0 = full density (all pixels are the color of Fog Color beyond Fog End), 0.5 = half density."
-	fogRadial(choices) : "Use Radial Fog" : 1 : "Use a spherical looking fog instead of simple planar one."
+	fogRadial(choices) : "Use Radial Fog" : 1 : "Use a spherical looking fog instead of simple planar one." =
 	[
 		0 : "No"
 		1 : "Yes"
