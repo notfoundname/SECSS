@@ -157,6 +157,7 @@
 		"trigger_remove"
 		"trigger_teleport"
 		"trigger_teleport_relative"
+        "water_lod_control"
 	]
 	"Moving things"
 	[
@@ -2436,7 +2437,7 @@
 	input IncrementTextureIndex(void) : "Increments the texture's current frame by one."
 	input SetTextureIndex(integer) : "Sets the texture's frame to the specified number."
 ]
-@PointClass base(CBaseEntity) color(160 240 37) = env_tonemap_controller : "Controls tonemapping. Think of it as a method of controlling how the player's pupils adjust as they look at areas of different brightnesses. Also controls bloom. To see the effects of this, the map must be compiled with HDR (check the HDR box in the compile options, or use -hdr or -both on the VRAD command line) and the player in question must have HDR enabled in their video settings."
+@PointClass base(CBaseEntity) iconsprite("editor/env_tonemap_controller") color(160 240 37) = env_tonemap_controller : "Controls tonemapping. Think of it as a method of controlling how the player's pupils adjust as they look at areas of different brightnesses. Also controls bloom. To see the effects of this, the map must be compiled with HDR (check the HDR box in the compile options, or use -hdr or -both on the VRAD command line) and the player in question must have HDR enabled in their video settings."
 [
 	input SetAutoExposureMin(float) : "Sets exposure level when looking at bright things. (Darkens environment in response.)"
 	input SetAutoExposureMax(float) : "Sets exposure level when looking at dark things. (Brightens environment in response.)"
@@ -2612,6 +2613,7 @@
 ]
 @SolidClass base(CBaseDoor) color(0 255 0) = func_door_rotating : "Rotating brush that can be 'opened' by players or NPCs. It rotates around its origin on the Z axis by default. The axis can be changed via spawnflags."
 [
+    distance(float) : "Rotation Distance" : "90" : "How many degrees the door should move. BUG: unlike prop_door_rotating, setting this to 0 will make door unmoveable!"
 	spawnflags(flags) =
 	[
 		2 : "Reverse Dir - This door opens in the opposite direction." : 0
@@ -4770,6 +4772,15 @@
 	input SetMaxSlideTime(float) : "Sets Max Slide Time."
 	input SetCycleType(integer) : "Sets Cycle Type."
 	input SetNoListRepeat(integer) : "Sets No List Repeat."
+]
+@PointClass base(CBaseEntity) iconsprite("editor/waterlodcontrol") = water_lod_control : "An entity which is supposed to control how far away from the player that water with real-time reflections turns into cheap water, but that behaviour was disabled for some reason." +
+"Instead, it can be used to pass two separate global numbers into VMTs." +
+"Every map with water in it is forced to have one. VBSP will create one if it's not included."
+[
+	cheapwaterstartdistance(float) : "Start Transition to Cheap Water" : 1024 : "Distance from the camera that water will start transitioning to cheap water, in units. Sets $CHEAPWATERSTARTDISTANCE in VMT."
+	cheapwaterenddistance(float) : "End Transition to Cheap Water" : 2048 : "Distance from the camera that water will finish transitioning to cheap water, in units. Sets $CHEAPWATERENDDISTANCE in VMT."
+	input SetCheapWaterStartDistance(float) : "Sets Start Transition to Cheap Water."
+	input SetCheapWaterEndDistance(float) : "Sets End Transition to Cheap Water."
 ]
 @PointClass base(CWeaponCSBase) color(160 37 240) sphere(fademindist) sphere(fademaxdist) studio("models/weapons/w_rif_ak47.mdl") = weapon_ak47 : "CV-47"
 [
